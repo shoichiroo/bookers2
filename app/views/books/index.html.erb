@@ -1,8 +1,19 @@
-<%= render "list", book: @book %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %> errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render "list", book: @book, book_user: @book_user %>
 
 <h1>Books</h1>
 <% @books.each do |book| %>
-  <%= image_tag book.user.get_profile_image(100, 100) %>
+  <%= link_to user_path(book.user.id) do %>
+    <%= image_tag book.user.get_profile_image(100, 100) %>
+  <% end %>
   <%= link_to book.title, book_path(book.id) %>
   <%= book.body %>
 <% end %>

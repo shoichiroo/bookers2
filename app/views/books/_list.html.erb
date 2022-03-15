@@ -1,7 +1,7 @@
 <h1>User info</h1>
-<%= image_tag current_user.get_profile_image(100, 100) %>
-<p>name<%= current_user.name %></p>
-<p>introduction<%= current_user.introduction %></p>
+<%= image_tag book_user.get_profile_image(100, 100) %>
+<p>name<%= book_user.name %></p>
+<p>introduction<%= book_user.introduction %></p>
 <%= link_to "edit", edit_user_path(current_user.id) %>
 
 <h1>New book</h1>

@@ -24,6 +24,9 @@
         <li><%= link_to "Log in", new_user_session_path %></li>
       <% end %>
     </header>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
     <%= yield %>
     <p>CopyRight Infratop.inc</p>
   </body>
