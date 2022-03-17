@@ -1,3 +1,11 @@
+<main>
+<p id="notice"></p>
+<div class="container">
+<div class="row">
+<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+<h2>User info</h2>
+
 <% if @user.errors.any? %>
   <%= @user.errors.count %> errors prohibited this obj from being saved:
   <ul>
@@ -7,13 +15,16 @@
   </ul>
 <% end %>
 
-<h1>User info</h1>
 <%= form_with model: @user do |f| %>
   <p>Name</p>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   <p>Image</p>
     <%= f.file_field :profile_image, accept: "image/*" %>
   <p>Introduction</p>
-    <%= f.text_area :introduction %><br>
-    <%= f.submit "Update User" %>
+    <%= f.text_area :introduction, class: "form-control" %><br>
+    <%= f.submit "Update User", class: "btn btn-secondary" %>
 <% end %>
+</div>
+</div>
+</div>
+</main>
